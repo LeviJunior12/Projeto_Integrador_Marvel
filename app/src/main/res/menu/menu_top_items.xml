@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="100"
+        android:title="@string/action_search"
+        android:icon="@drawable/ic_outline_search_24"
+        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/action_favorite"
         android:orderInCategory="100"
         android:title="@string/action_favorite"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_round_star_outline_24"
+        app:showAsAction="ifRoom" />
 </menu>

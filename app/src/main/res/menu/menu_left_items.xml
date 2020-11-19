@@ -12,5 +12,17 @@
             android:id="@+id/nav_favorites"
             android:icon="@drawable/ic_round_star_outline_24"
             android:title="@string/menu_favorites" />
+        <item
+            android:id="@+id/nav_character"
+            android:icon="@drawable/ic_round_star_outline_24"
+            android:title="Characters" />
+        <item
+            android:id="@+id/nav_creators"
+            android:icon="@drawable/ic_round_star_outline_24"
+            android:title="Creators" />
+        <item
+            android:id="@+id/nav_comics"
+            android:icon="@drawable/ic_round_star_outline_24"
+            android:title="Comics" />
     </group>
 </menu>
