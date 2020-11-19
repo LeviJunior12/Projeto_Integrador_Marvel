@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ProjetoIntegradorMarvel</string>
+    <string name="nav_header_desc">Navigation Header Image</string>
+    <string name="nav_header_title">Marvel Comics App</string>
+    <string name="nav_header_subtitle">Projeto Intergrador</string>
+    <string name="menu_favorites">Favoritos</string>
+    <string name="menu_home">Home</string>
+    <string name="action_favorite">Favorite</string>
 </resources>
