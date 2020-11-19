@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -14,6 +15,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -23,12 +25,12 @@
             </androidx.appcompat.widget.Toolbar>
 
             <ImageView
-                android:contentDescription="Logo"
-                android:layout_height="35dp"
                 android:layout_width="match_parent"
-                android:scaleType="centerInside"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_marvel_logo"/>
+                android:contentDescription="Logo"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_marvel_logo" />
         </FrameLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
