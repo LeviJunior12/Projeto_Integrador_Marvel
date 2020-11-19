@@ -24,5 +24,10 @@
             android:id="@+id/nav_comics"
             android:icon="@drawable/ic_round_star_outline_24"
             android:title="Comics" />
+
+        <item
+            android:id="@+id/nav_list"
+            android:icon="@drawable/ic_round_star_outline_24"
+            android:title="List" />
     </group>
 </menu>

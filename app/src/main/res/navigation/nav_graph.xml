@@ -34,4 +34,11 @@
         android:name="com.example.projetointegradormarvel.creators.CreatorsFragment"
         android:label="fragment_creators"
         tools:layout="@layout/fragment_creators" />
+
+    <fragment
+        android:id="@+id/nav_list"
+        android:name="com.example.projetointegradormarvel.list.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" />
+
 </navigation>
