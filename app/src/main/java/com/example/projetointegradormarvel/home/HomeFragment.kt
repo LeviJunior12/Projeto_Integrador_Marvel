@@ -33,24 +33,6 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        return view
-
-//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-//        val textView: TextView = view.findViewById(R.id.text_home)
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
-
-    }
-
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-//        // TODO: Use the ViewModel
-//    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         listCharacters = getListCharacters()
         listCreators = getListCreators()
@@ -70,9 +52,21 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
             adapter = ComicAdapter(listComics)
         }
+        return view
+
+//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+//        val textView: TextView = view.findViewById(R.id.text_home)
+//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
     }
 
-    // Gera dummies
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+//        TODO: Use the ViewModel
+//    }
 
     fun getListCharacters(): ArrayList <Characters>{
         return arrayListOf(

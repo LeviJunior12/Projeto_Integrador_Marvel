@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/iv_recycler_card"
-        android:layout_width="120dp"
-        android:layout_height="200dp"
+        android:layout_width="125dp"
+        android:layout_height="180dp"
         android:scaleType="centerInside"
         android:src="@drawable/ic_marvel_logo" />
 </androidx.cardview.widget.CardView>
