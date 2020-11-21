@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.projetointegradormarvel.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.example.projetointegradormarvel.favorites.FavoritesFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/nav_character"
+        android:name="com.example.projetointegradormarvel.characters.CharacterFragment"
+        android:label="fragment_character"
+        tools:layout="@layout/fragment_character" />
+
+    <fragment
+        android:id="@+id/nav_comics"
+        android:name="com.example.projetointegradormarvel.comics.ComicsFragment"
+        android:label="fragment_comics"
+        tools:layout="@layout/fragment_comics" />
+
+    <fragment
+        android:id="@+id/nav_creators"
+        android:name="com.example.projetointegradormarvel.creators.CreatorsFragment"
+        android:label="fragment_creators"
+        tools:layout="@layout/fragment_creators" />
+
+    <fragment
+        android:id="@+id/nav_list"
+        android:name="com.example.projetointegradormarvel.list.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" />
+
+</navigation>

@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">ProjetoIntegradorMarvel</string>
+    <string name="app_name">Marvel Comics Wiki</string>
+    <string name="nav_header_desc">Navigation Header Image</string>
+    <string name="nav_header_title">Marvel Comics App</string>
+    <string name="nav_header_subtitle">Projeto Intergrador</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_home">Home</string>
+    <string name="action_favorite">Favorite</string>
+    <string name="action_search">Search</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_characters">Characters</string>
+    <string name="menu_creators">Creators</string>
+    <string name="menu_comics">Comics</string>
 </resources>
