@@ -11,4 +11,7 @@
     <string name="menu_characters">Characters</string>
     <string name="menu_creators">Creators</string>
     <string name="menu_comics">Comics</string>
+    <string name="fav_character">Favorite Characters</string>
+    <string name="fav_creators">Favorite Creators</string>
+    <string name="fav_comics">Favorite Comics</string>
 </resources>
