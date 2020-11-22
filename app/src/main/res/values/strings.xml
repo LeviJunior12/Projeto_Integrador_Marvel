@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Marvel Comics Wiki</string>
     <string name="nav_header_desc">Navigation Header Image</string>
-    <string name="nav_header_title">Marvel Comics App</string>
-    <string name="nav_header_subtitle">Projeto Intergrador</string>
+    <string name="nav_header_title">Marvel Comics Wiki</string>
+    <string name="nav_header_subtitle">Projeto Integrador</string>
     <string name="menu_favorites">Favorites</string>
     <string name="menu_home">Home</string>
     <string name="action_favorite">Favorite</string>
@@ -11,6 +11,9 @@
     <string name="menu_characters">Characters</string>
     <string name="menu_creators">Creators</string>
     <string name="menu_comics">Comics</string>
+    <string name="fav_character">Favorite Characters</string>
+    <string name="fav_creators">Favorite Creators</string>
+    <string name="fav_comics">Favorite Comics</string>
     <string name="txt_login">LOGIN</string>
     <string name="text_cadastro">SIGN UP</string>
     <string name="txt_email">E-mail</string>
