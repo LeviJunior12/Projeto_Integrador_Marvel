@@ -12,6 +12,6 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/splash"/>
+        android:src="@drawable/ic_avengers_background"/>
 
 </RelativeLayout>
