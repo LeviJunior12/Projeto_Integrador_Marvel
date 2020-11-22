@@ -40,5 +40,11 @@
         android:name="com.example.projetointegradormarvel.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.projetointegradormarvel.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" >
+    </activity>
 
 </navigation>
