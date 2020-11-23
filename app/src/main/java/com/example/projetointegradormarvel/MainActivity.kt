@@ -1,8 +1,10 @@
 package com.example.projetointegradormarvel
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -47,4 +49,24 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_search -> {
+            // User chose the "Settings" item
+            val intent = Intent(this, BuscaActivity::class.java)
+            startActivity(intent)
+            true
+        }
+
+        R.id.action_favorite -> {
+            // User chose the "Favorite" action
+            true
+        }
+
+        else -> {
+            // If we got here, the user's action
+            super.onOptionsItemSelected(item)
+        }
+    }
+
 }
