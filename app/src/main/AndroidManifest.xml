@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegradorMarvel">
-        <activity android:name=".BuscaActivity"></activity>
-        <activity android:name=".CadastroActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity
+            android:name=".SignupActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

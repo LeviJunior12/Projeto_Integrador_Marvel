@@ -59,25 +59,24 @@ class FavoritesFragment : Fragment() {
 
     fun getListCharacters(): ArrayList <Characters>{
         return arrayListOf(
-            Characters(R.drawable.ic_marvel_logo),
-            Characters(R.drawable.ic_launcher_foreground),
-            Characters(R.drawable.ic_marvel_logo)
+            Characters(R.drawable.dummy_capitain),
+            Characters(R.drawable.dummy_hulk),
+            Characters(R.drawable.dummy_widow)
         )
     }
 
     fun getListCreators(): ArrayList <Creators>{
         return arrayListOf(
-            Creators(R.drawable.ic_launcher_background),
-            Creators(R.drawable.ic_marvel_logo)
+            Creators(R.drawable.dummy_spider),
+            Creators(R.drawable.dummy_capitain)
         )
     }
 
     fun getListComics(): ArrayList <Comics>{
         return arrayListOf(
-            Comics(R.drawable.ic_launcher_foreground),
-            Comics(R.drawable.ic_launcher_foreground),
-            Comics(R.drawable.ic_launcher_foreground),
-            Comics(R.drawable.ic_marvel_logo)
+            Comics(R.drawable.dummy_thor),
+            Comics(R.drawable.dummy_widow),
+            Comics(R.drawable.dummy_spider)
         )
     }
 }

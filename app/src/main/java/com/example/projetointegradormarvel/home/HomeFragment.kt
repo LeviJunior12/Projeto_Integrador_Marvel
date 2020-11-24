@@ -70,34 +70,34 @@ class HomeFragment : Fragment() {
 
     fun getListCharacters(): ArrayList <Characters>{
         return arrayListOf(
-            Characters(R.drawable.ic_marvel_logo),
-            Characters(R.drawable.ic_launcher_foreground),
-            Characters(R.drawable.ic_marvel_logo),
-            Characters(R.drawable.ic_launcher_background),
-            Characters(R.drawable.ic_launcher_foreground),
-            Characters(R.drawable.ic_marvel_logo)
+            Characters(R.drawable.dummy_capitain),
+            Characters(R.drawable.dummy_hulk),
+            Characters(R.drawable.dummy_panther),
+            Characters(R.drawable.dummy_spider),
+            Characters(R.drawable.dummy_thor),
+            Characters(R.drawable.dummy_widow)
         )
     }
 
     fun getListCreators(): ArrayList <Creators>{
         return arrayListOf(
-            Creators(R.drawable.ic_marvel_logo),
-            Creators(R.drawable.ic_launcher_background),
-            Creators(R.drawable.ic_marvel_logo),
-            Creators(R.drawable.ic_launcher_foreground),
-            Creators(R.drawable.ic_launcher_foreground),
-            Creators(R.drawable.ic_marvel_logo)
+            Creators(R.drawable.dummy_spider),
+            Creators(R.drawable.dummy_thor),
+            Creators(R.drawable.dummy_widow),
+            Creators(R.drawable.dummy_hulk),
+            Creators(R.drawable.dummy_panther),
+            Creators(R.drawable.dummy_capitain)
         )
     }
 
     fun getListComics(): ArrayList <Comics>{
         return arrayListOf(
-            Comics(R.drawable.ic_launcher_foreground),
-            Comics(R.drawable.ic_marvel_logo),
-            Comics(R.drawable.ic_marvel_logo),
-            Comics(R.drawable.ic_launcher_background),
-            Comics(R.drawable.ic_launcher_foreground),
-            Comics(R.drawable.ic_marvel_logo)
+            Comics(R.drawable.dummy_thor),
+            Comics(R.drawable.dummy_widow),
+            Comics(R.drawable.dummy_hulk),
+            Comics(R.drawable.dummy_panther),
+            Comics(R.drawable.dummy_capitain),
+            Comics(R.drawable.dummy_spider)
         )
     }
 }

@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_search -> {
             // User chose the "Settings" item
-            val intent = Intent(this, BuscaActivity::class.java)
+            val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
             true
         }

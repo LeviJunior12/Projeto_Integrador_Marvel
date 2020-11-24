@@ -7,10 +7,10 @@ import android.view.InputDevice
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 
-class BuscaActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_busca)
+        setContentView(R.layout.activity_search)
 
         getView()
     }

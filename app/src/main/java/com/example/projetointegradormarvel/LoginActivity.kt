@@ -3,7 +3,6 @@ package com.example.projetointegradormarvel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.Navigation.findNavController
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -26,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun callCadastro() {
-        var intent = Intent(this, CadastroActivity::class.java)
+        var intent = Intent(this, SignupActivity::class.java)
         startActivity(intent)
     }
 }
