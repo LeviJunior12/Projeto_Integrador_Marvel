@@ -15,7 +15,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="6dp"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="4dp"
             android:text="@string/menu_characters"
             android:textAlignment="textStart"
             android:textColor="@color/white"
@@ -33,7 +34,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="6dp"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="4dp"
             android:text="@string/menu_creators"
             android:textAlignment="textStart"
             android:textColor="@color/white"
@@ -51,7 +53,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="6dp"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="4dp"
             android:text="@string/menu_comics"
             android:textAlignment="textStart"
             android:textColor="@color/white"
