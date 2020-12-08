@@ -4,8 +4,8 @@ package com.example.projetointegradormarvel.UI
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.projetointegradormarvel.characters.Characters
 import com.example.projetointegradormarvel.comics.Comics
+import com.example.projetointegradormarvel.comicsHQgenerica.Personagens
 import com.example.projetointegradormarvel.creators.Creators
 import com.example.projetointegradormarvel.repository.Service
 import com.example.projetointegradormarvel.repository.serv
@@ -19,7 +19,7 @@ class MainViewModel(val service: Service): ViewModel() {
     //Criação das variáveis das listas
     val listComics = MutableLiveData<List<Comics>>()
     val listCreators = MutableLiveData<List<Creators>>()
-    val listCharacters = MutableLiveData<List<Characters>>()
+    val listCharacters = MutableLiveData<List<Personagens.Characters>>()
 
 
 

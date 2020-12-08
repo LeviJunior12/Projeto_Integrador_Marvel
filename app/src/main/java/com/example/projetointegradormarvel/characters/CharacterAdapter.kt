@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
-import com.example.projetointegradormarvel.comicsHQgenerica.teste
+import com.example.projetointegradormarvel.comicsHQgenerica.Personagens
 import com.example.projetointegradormarvel.list.ListFragment
 import com.squareup.picasso.Picasso
 
-class CharacterAdapter(private val listCharacters: ArrayList<teste.ComicsTeste>, val listener: ListFragment) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
+class CharacterAdapter(private val listCharacters: ArrayList<Personagens.Characters>, val listener: RecyclerView) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     //Cria a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {

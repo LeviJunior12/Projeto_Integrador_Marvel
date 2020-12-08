@@ -1,9 +1,8 @@
 package com.example.projetointegradormarvel.repository
 
 
-import android.os.Parcelable
-import com.example.projetointegradormarvel.characters.Characters
 import com.example.projetointegradormarvel.comics.Comics
+import com.example.projetointegradormarvel.comicsHQgenerica.Personagens
 import com.example.projetointegradormarvel.creators.Creators
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,7 +29,7 @@ interface Service {
     @GET("characters?ts=1&apikey=6eb7e8896ec5850c52515a8a23ee97f0&hash=40a3aa568bb269dfad85ae0c4a297181")
     suspend fun getAllCharactersRepo(
         @Query("offset") offset: Int
-    ): Characters
+    ): Personagens.Characters
 
 }
 

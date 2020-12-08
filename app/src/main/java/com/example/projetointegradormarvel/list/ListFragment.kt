@@ -9,22 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.UI.MainViewModel
-import com.example.projetointegradormarvel.characters.CharacterAdapter
-import com.example.projetointegradormarvel.characters.Characters
 import com.example.projetointegradormarvel.comics.Comics
+import com.example.projetointegradormarvel.comicsHQgenerica.Personagens
 import com.example.projetointegradormarvel.creators.Creators
 import com.example.projetointegradormarvel.repository.serv
 
 class ListFragment : Fragment() {
 
     private var listIComics = ArrayList<Comics>()
-    private var listCharacters = ArrayList<Characters>()
+    private var listCharacters = ArrayList<Personagens.Characters>()
     private var listCreators = ArrayList<Creators>()
+
 
     private val viewModel by viewModels<MainViewModel> {
         object : ViewModelProvider.Factory {
@@ -44,17 +43,6 @@ class ListFragment : Fragment() {
         }
         // TODO: Fix Gridlayout in Horizontal Mode
         return view
-    }
-
-
-
-    fun hqClick(position: Int) {
-        viewModel.listCharacters.observe(this) {
-            val selectHQ = it[position]
-
-            val bundle = bundleOf("chave" to selectHQ)
-            //findNavController().navigate(R.id.action_fragmentListHQ_to_fragmentDetail, bundle)
-        }
     }
 
 }
