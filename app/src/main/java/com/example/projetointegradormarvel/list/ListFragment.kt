@@ -22,7 +22,7 @@ class ListFragment : Fragment() {
 
         view.findViewById<RecyclerView>(R.id.rv_list).apply {
             layoutManager = GridLayoutManager(view.context, 3)
-            adapter = CharacterAdapter(listItems)
+//            adapter = CharacterAdapter(listItems)
         }
         // TODO: Fix Gridlayout in Horizontal Mode
         return view

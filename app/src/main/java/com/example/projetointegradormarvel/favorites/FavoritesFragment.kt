@@ -36,7 +36,7 @@ class FavoritesFragment : Fragment() {
 
         view.findViewById<RecyclerView>(R.id.rv_fav_characters).apply {
             layoutManager = LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
-            adapter = CharacterAdapter(listCharacters)
+//            adapter = CharacterAdapter(listCharacters)
         }
 
         view.findViewById<RecyclerView>(R.id.rv_fav_creators).apply {

@@ -1,14 +1,14 @@
 package com.example.projetointegradormarvel.home
 
-import androidx.lifecycle.ViewModelProvider
+import Results
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.lifecycle.Observer
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
@@ -18,7 +18,8 @@ import com.example.projetointegradormarvel.comics.ComicAdapter
 import com.example.projetointegradormarvel.comics.Comics
 import com.example.projetointegradormarvel.creators.CreatorAdapter
 import com.example.projetointegradormarvel.creators.Creators
-import com.example.projetointegradormarvel.favorites.FavoritesViewModel
+import com.example.projetointegradormarvel.services.service
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
 
@@ -26,21 +27,38 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    private lateinit var viewModel: HomeViewModel
     private var listCharacters = ArrayList<Characters>()
     private var listCreators= ArrayList<Creators>()
     private var listComics = ArrayList<Comics>()
 
+    val viewModel by viewModels<HomeViewModel> {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return HomeViewModel(service) as T
+            }
+
+        }
+    }
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        listCharacters = getListCharacters()
+//        listCharacters = getListCharacters()
         listCreators = getListCreators()
         listComics = getListComics()
 
+        viewModel.getListCharacters()
+
         view.findViewById<RecyclerView>(R.id.rv_characters).apply {
             layoutManager = LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
-            adapter = CharacterAdapter(listCharacters)
+            // adapter = CharacterAdapter(listCharacters)
+
+            viewModel.listCharacters.observe(viewLifecycleOwner) {
+                adapter = CharacterAdapter(it)
+
+            }
+
         }
 
         view.findViewById<RecyclerView>(R.id.rv_creators).apply {
