@@ -4,10 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.recycler_card.view.*
 
-class ComicAdapter (private val listComics : ArrayList<Comics>) : RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
+class ComicAdapter(
+    private val listComics: List<ComicsResults>
+) : RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -20,10 +25,15 @@ class ComicAdapter (private val listComics : ArrayList<Comics>) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: ComicViewHolder, position: Int) {
-        holder.imageView.setImageResource(listComics[position].image)
+        holder.titleTextView.text = listComics[position].title
+
+        val imgURL =
+            listComics[position].thumbnail.path + "." + listComics[position].thumbnail.extension
+        Picasso.get().load(imgURL).into(holder.thumbImageView)
     }
 
-    inner class ComicViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.iv_recycler_card)
+    inner class ComicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val thumbImageView: ImageView = itemView.findViewById(R.id.iv_recycler_card)
+        val titleTextView: TextView = itemView.tv_recycler_card
     }
 }
