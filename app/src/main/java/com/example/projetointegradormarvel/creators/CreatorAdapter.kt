@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class CreatorAdapter(
-    private val listCreators: List<CreatorsResults>
+    private val listCreators: List<CreatorsResults>, private val creatorsClick: CardCreatorsClickListener
 ) : RecyclerView.Adapter<CreatorAdapter.CreatorViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreatorViewHolder {
@@ -28,8 +28,12 @@ class CreatorAdapter(
         holder.titleTextView.text = listCreators[position].firstName
 
         val imgURL =
-            listCreators[position].thumbnail.path + "." + listCreators[position].thumbnail.extension
+            listCreators[position].thumbnail.path.replace("http", "https")  + "." + listCreators[position].thumbnail.extension
         Picasso.get().load(imgURL).into(holder.thumbImageView)
+
+        holder.itemView.setOnClickListener {
+            creatorsClick.onCardCreatorsClickListener(position)
+        }
     }
 
     inner class CreatorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
