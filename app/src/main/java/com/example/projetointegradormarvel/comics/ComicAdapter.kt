@@ -7,11 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
+import com.example.projetointegradormarvel.list.ListFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class ComicAdapter(
-    private val listComics: List<ComicsResults>
+    private val listComics: List<ComicsResults>,
+    val listener: comicOnClickListener
 ) : RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
@@ -30,10 +32,21 @@ class ComicAdapter(
         val imgURL =
             listComics[position].thumbnail.path + "." + listComics[position].thumbnail.extension
         Picasso.get().load(imgURL).into(holder.thumbImageView)
+
+        holder.itemView.setOnClickListener {
+            listener.comicClick(position)
+        }
     }
 
     inner class ComicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val thumbImageView: ImageView = itemView.findViewById(R.id.iv_recycler_card)
         val titleTextView: TextView = itemView.tv_recycler_card
     }
+
 }
+    interface comicOnClickListener {
+       fun comicClick(position: Int)
+
+    }
+
+

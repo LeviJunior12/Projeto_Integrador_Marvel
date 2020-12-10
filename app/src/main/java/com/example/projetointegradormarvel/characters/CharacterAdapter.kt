@@ -33,6 +33,7 @@ class CharacterAdapter(
         Picasso.get().load(imgURL).into(holder.thumbImageView)
     }
 
+
     inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val thumbImageView: ImageView = itemView.findViewById(R.id.iv_recycler_card)
         val titleTextView: TextView = itemView.tv_recycler_card

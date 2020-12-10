@@ -9,7 +9,15 @@
         android:id="@+id/nav_home"
         android:name="com.example.projetointegradormarvel.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_nav_home_to_nav_list3"
+            app:destination="@id/nav_list" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_favorites"
+            app:destination="@id/nav_favorites" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_favorites"
@@ -21,30 +29,64 @@
         android:id="@+id/nav_character"
         android:name="com.example.projetointegradormarvel.characters.CharacterFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_character" />
+        tools:layout="@layout/fragment_character" >
+        <action
+            android:id="@+id/action_nav_character_to_nav_list"
+            app:destination="@id/nav_list" />
+        <action
+            android:id="@+id/action_nav_character_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_comics"
         android:name="com.example.projetointegradormarvel.comics.ComicsFragment"
         android:label="fragment_comics"
-        tools:layout="@layout/fragment_comics" />
+        tools:layout="@layout/fragment_comics" >
+        <action
+            android:id="@+id/action_nav_comics_to_nav_list"
+            app:destination="@id/nav_list" />
+        <action
+            android:id="@+id/action_nav_comics_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_creators"
         android:name="com.example.projetointegradormarvel.creators.CreatorsFragment"
         android:label="fragment_creators"
-        tools:layout="@layout/fragment_creators" />
+        tools:layout="@layout/fragment_creators" >
+        <action
+            android:id="@+id/action_nav_creators_to_nav_list"
+            app:destination="@id/nav_list" />
+        <action
+            android:id="@+id/action_nav_creators_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_list"
         android:name="com.example.projetointegradormarvel.list.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_nav_list_to_nav_creators"
+            app:destination="@id/nav_creators" />
+        <action
+            android:id="@+id/action_nav_list_to_nav_comics"
+            app:destination="@id/nav_comics" />
+        <action
+            android:id="@+id/action_nav_list_to_nav_character"
+            app:destination="@id/nav_character" />
+    </fragment>
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.projetointegradormarvel.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" >
+        <action
+            android:id="@+id/action_loginActivity_to_nav_home"
+            app:destination="@id/nav_home" />
     </activity>
 
 </navigation>

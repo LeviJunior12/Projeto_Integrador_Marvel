@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.projetointegradormarvel.CardClickListener
 import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.characters.CharacterAdapter
 import com.example.projetointegradormarvel.home.HomeViewModel
@@ -52,9 +51,14 @@ class ListFragment : Fragment(), CardClickListener {
             val bundle = bundleOf("chave" to it[position])
             findNavController().navigate(R.id.nav_host_fragment, bundle)
         })
-        //   TODO: fix this list
+
+
+        }
+
     }
-}
+
+
+
 
 
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
