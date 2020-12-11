@@ -29,6 +29,7 @@ class HomeFragment : Fragment(), CardCreatorsClickListener, CardCharacterClickLi
         fun newInstance() = HomeFragment()
     }
 
+    @Suppress("UNCHECKED_CAST")
     private val viewModel by viewModels<HomeViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelCLass: Class<T>): T {

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegradorMarvel">
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".search.SearchActivity" />
         <activity
             android:name=".SignupActivity"
             android:windowSoftInputMode="stateVisible|adjustPan" />

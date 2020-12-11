@@ -19,6 +19,8 @@ import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
 
+    //vindo da homeviewModel
+    @Suppress("UNCHECKED_CAST")
     private val viewModel by viewModels<HomeViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelCLass: Class<T>): T {

@@ -1,23 +1,31 @@
-package com.example.projetointegradormarvel
+package com.example.projetointegradormarvel.search
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.InputDevice
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import com.example.projetointegradormarvel.R
+import kotlinx.android.synthetic.main.layout_main_buscar.*
 
 class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        getView()
-    }
+        btn_characterSearch.setOnClickListener {
 
-    private fun View.hideKeyboard(){
-        val i = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        i.hideSoftInputFromWindow(windowToken, 0)
+        }
+
+        btn_comicsSearch.setOnClickListener {
+
+        }
+
+        btn_creatorsSearch.setOnClickListener {
+
+        }
+
+        getView()
     }
 
     private fun getView(): View {

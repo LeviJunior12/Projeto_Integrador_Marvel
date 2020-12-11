@@ -25,4 +25,8 @@
     <string name="txt_cancela">CANCEL</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue, sem at congue ullamcorper, turpis enim fermentum mauris, ut volutpat velit lorem eu leo. Aliquam ut turpis blandit, lacinia lacus ac, rutrum diam. Suspendisse at aliquam dolor. Vestibulum feugiat leo urna, at lobortis ipsum ornare quis. Donec venenatis erat ac massa.</string>
     <string name="description_america">Vowing to serve his country any way he could, young Steve Rogers took the super soldier serum to become America\'s one-man army. Fighting for the red, white and blue for over 60 years, Captain America is the living, breathing symbol of freedom and liberty.</string>
+    <string name="characters">Characters</string>
+    <string name="Comics">Comics</string>
+    <string name="creators">Creators</string>
+    <string name="logo">Logo</string>
 </resources>
