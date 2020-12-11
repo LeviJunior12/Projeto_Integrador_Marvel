@@ -1,13 +1,35 @@
 package com.example.projetointegradormarvel.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.projetointegradormarvel.WebService
+import com.example.projetointegradormarvel.comics.ComicsResults
+import com.example.projetointegradormarvel.characters.CharactersResults
+import com.example.projetointegradormarvel.creators.CreatorsResults
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val webService: WebService) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    var listCharacters = MutableLiveData<List<CharactersResults>>()
+    var listComics = MutableLiveData<List<ComicsResults>>()
+    var listCreators = MutableLiveData<List<CreatorsResults>>()
+
+    fun getCharacters(offset: Int) {
+        viewModelScope.launch {
+            listCharacters.value = webService.getCharactersRepo(offset).data.results
+        }
     }
-    val text: LiveData<String> = _text
+
+    fun getComics(offset: Int) {
+        viewModelScope.launch {
+            listComics.value = webService.getComicsRepo(offset).data.results
+        }
+    }
+
+    fun getCreators(offset: Int) {
+        viewModelScope.launch {
+            listCreators.value = webService.getCreatorsRepo(offset).data.results
+        }
+    }
 }

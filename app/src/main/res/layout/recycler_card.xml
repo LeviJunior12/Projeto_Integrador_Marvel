@@ -9,10 +9,34 @@
     card_view:cardBackgroundColor="#fff"
     card_view:cardCornerRadius="2dp">
 
-    <ImageView
-        android:id="@+id/iv_recycler_card"
-        android:layout_width="125dp"
-        android:layout_height="180dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_marvel_logo" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_recycler_card"
+            android:layout_width="125dp"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dummy_capitain"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="125dp"
+            android:layout_height="35dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/ic_recycler_gradient_top" />
+
+        <TextView
+            android:id="@+id/tv_recycler_card"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="7dp"
+            android:text="Thor"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
 </androidx.cardview.widget.CardView>

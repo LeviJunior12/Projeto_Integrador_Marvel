@@ -6,98 +6,96 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.lifecycle.Observer
+import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projetointegradormarvel.creators.CardCreatorsClickListener
 import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.characters.CharacterAdapter
-import com.example.projetointegradormarvel.characters.Characters
 import com.example.projetointegradormarvel.comics.ComicAdapter
-import com.example.projetointegradormarvel.comics.Comics
 import com.example.projetointegradormarvel.creators.CreatorAdapter
-import com.example.projetointegradormarvel.creators.Creators
-import com.example.projetointegradormarvel.favorites.FavoritesViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment() {
+import androidx.navigation.fragment.findNavController
+import com.example.projetointegradormarvel.characters.CardCharacterClickListener
+import com.example.projetointegradormarvel.comics.CardComicsClickListener
+import com.example.projetointegradormarvel.webService
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
+class HomeFragment : Fragment(), CardCreatorsClickListener, CardCharacterClickListener, CardComicsClickListener {
     companion object {
         fun newInstance() = HomeFragment()
     }
 
-    private lateinit var viewModel: HomeViewModel
-    private var listCharacters = ArrayList<Characters>()
-    private var listCreators= ArrayList<Creators>()
-    private var listComics = ArrayList<Comics>()
+    @Suppress("UNCHECKED_CAST")
+    private val viewModel by viewModels<HomeViewModel> {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelCLass: Class<T>): T {
+                return HomeViewModel(webService) as T
+            }
+        }
+    }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        listCharacters = getListCharacters()
-        listCreators = getListCreators()
-        listComics = getListComics()
+        viewModel.getCharacters(1)
+        viewModel.getComics(1)
+        viewModel.getCreators(1)
 
-        view.findViewById<RecyclerView>(R.id.rv_characters).apply {
-            layoutManager = LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
-            adapter = CharacterAdapter(listCharacters)
-        }
+        view.rv_characters.layoutManager =
+            LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
+        viewModel.listCharacters.observe(viewLifecycleOwner, {
+            rv_characters.adapter = CharacterAdapter(it, this)
+        })
 
-        view.findViewById<RecyclerView>(R.id.rv_creators).apply {
-            layoutManager = LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
-            adapter = CreatorAdapter(listCreators)
-        }
+        view.rv_comics.layoutManager =
+            LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
+        viewModel.listComics.observe(viewLifecycleOwner, {
+            rv_comics.adapter = ComicAdapter(it, this)
+        })
 
-        view.findViewById<RecyclerView>(R.id.rv_comics).apply {
-            layoutManager = LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
-            adapter = ComicAdapter(listComics)
-        }
+        view.rv_creators.layoutManager =
+            LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
+        viewModel.listCreators.observe(viewLifecycleOwner, {
+            rv_creators.adapter = CreatorAdapter(it, this)
+        })
+
         return view
-
-//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-//        val textView: TextView = view.findViewById(R.id.text_home)
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
     }
 
+    override fun onCardCreatorsClickListener(position: Int) {
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-//        TODO: Use the ViewModel
-//    }
+        viewModel.listCreators.observe(this, {
+            val data = it[position]
 
-    fun getListCharacters(): ArrayList <Characters>{
-        return arrayListOf(
-            Characters(R.drawable.ic_marvel_logo),
-            Characters(R.drawable.ic_launcher_foreground),
-            Characters(R.drawable.ic_marvel_logo),
-            Characters(R.drawable.ic_launcher_background),
-            Characters(R.drawable.ic_launcher_foreground),
-            Characters(R.drawable.ic_marvel_logo)
-        )
+            val bundle = bundleOf("data" to data)
+            findNavController().navigate(R.id.nav_creators, bundle)
+        })
     }
 
-    fun getListCreators(): ArrayList <Creators>{
-        return arrayListOf(
-            Creators(R.drawable.ic_marvel_logo),
-            Creators(R.drawable.ic_launcher_background),
-            Creators(R.drawable.ic_marvel_logo),
-            Creators(R.drawable.ic_launcher_foreground),
-            Creators(R.drawable.ic_launcher_foreground),
-            Creators(R.drawable.ic_marvel_logo)
-        )
+    override fun onCardCharacterClickListener(position: Int) {
+        viewModel.listCharacters.observe(this, {
+
+            val data = it[position]
+
+            val bundle = bundleOf("data" to data)
+            findNavController().navigate(R.id.nav_character, bundle)
+        })
     }
 
-    fun getListComics(): ArrayList <Comics>{
-        return arrayListOf(
-            Comics(R.drawable.ic_launcher_foreground),
-            Comics(R.drawable.ic_marvel_logo),
-            Comics(R.drawable.ic_marvel_logo),
-            Comics(R.drawable.ic_launcher_background),
-            Comics(R.drawable.ic_launcher_foreground),
-            Comics(R.drawable.ic_marvel_logo)
-        )
+    override fun onCardComicsClickListener(position: Int) {
+        viewModel.listComics.observe(this, {
+            val data = it[position]
+
+            val bundle = bundleOf("data" to data)
+            findNavController().navigate(R.id.nav_comics, bundle)
+        })
     }
 }

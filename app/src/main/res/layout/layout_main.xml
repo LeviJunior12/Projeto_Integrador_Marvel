@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:contentDescription="Logo"
+                android:contentDescription="@string/logo"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_marvel_logo" />
         </FrameLayout>

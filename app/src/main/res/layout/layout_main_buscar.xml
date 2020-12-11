@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -27,10 +28,76 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:iconifiedByDefault="false"
+                android:autofillHints="ser"
                 android:queryHint="@string/action_search"
                 android:background="@color/marvelRed"/>
 
         </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:background="@color/marvelRed"
+            tools:layout_editor_absoluteX="2dp">
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/btn_characterSearch"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="8pt"
+                android:text="@string/characters"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/btn_comicsSearch"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="8pt"
+                android:text="@string/Comics"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+            <Button
+                android:textAllCaps="false"
+                android:id="@+id/btn_creatorsSearch"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="8pt"
+                android:text="@string/creators"
+                android:textStyle="bold"
+                android:typeface="normal" />
+
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/frag_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.example.projetointegradormarvel.search.SearchFragment"
+            tools:layout="@layout/fragment_search" />
+
+    </LinearLayout>
 
 </LinearLayout>

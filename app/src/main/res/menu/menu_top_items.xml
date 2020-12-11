@@ -15,4 +15,6 @@
         android:title="@string/action_favorite"
         android:icon="@drawable/ic_round_star_outline_24"
         app:showAsAction="ifRoom" />
+
+
 </menu>
