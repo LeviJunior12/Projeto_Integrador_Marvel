@@ -5,6 +5,7 @@ import com.example.projetointegradormarvel.comics.Comics
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+
 class CharactersResults(
 
     @SerializedName("id") val id: Int,

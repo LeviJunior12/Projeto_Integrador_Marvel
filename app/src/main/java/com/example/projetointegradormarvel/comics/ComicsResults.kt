@@ -12,4 +12,5 @@ data class ComicsResults(
     @SerializedName("pageCount") val pageCount: Int,
     @SerializedName("resourceURI") val resourceURI: String,
     @SerializedName("thumbnail") val thumbnail: Thumbnail
+
 ): Serializable

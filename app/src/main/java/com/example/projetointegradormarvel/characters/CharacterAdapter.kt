@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class CharacterAdapter(
     private val listCharacters: List<CharactersResults>, private val click: CardCharacterClickListener
+
 ) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {

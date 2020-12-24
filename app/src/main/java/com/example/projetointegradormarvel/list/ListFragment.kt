@@ -18,7 +18,6 @@ import com.example.projetointegradormarvel.webService
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
-
     private val viewModel by viewModels<HomeViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelCLass: Class<T>): T {
@@ -38,6 +37,7 @@ class ListFragment : Fragment() {
         view.rv_list.layoutManager = GridLayoutManager(view.context, 3)
         viewModel.listCharacters.observe(viewLifecycleOwner, {
 //            rv_list.adapter = CharacterAdapter(it, this)
+
         })
         // TODO: Fix Gridlayout in Horizontal Mode
 

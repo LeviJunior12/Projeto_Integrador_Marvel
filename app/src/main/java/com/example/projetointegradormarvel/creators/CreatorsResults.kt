@@ -20,4 +20,5 @@ class CreatorsResults(
 //    @SerializedName("stories") val stories : Stories,
 //    @SerializedName("events") val events : Events,
 //    @SerializedName("urls") val urls : List<Urls>
+
 ): Serializable

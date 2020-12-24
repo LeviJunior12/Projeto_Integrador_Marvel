@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class ComicAdapter(
     private val listComics: List<ComicsResults>, private val click: CardComicsClickListener
+
 ) : RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {

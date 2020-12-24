@@ -17,7 +17,6 @@ import com.example.projetointegradormarvel.characters.CharacterAdapter
 import com.example.projetointegradormarvel.comics.ComicAdapter
 import com.example.projetointegradormarvel.creators.CreatorAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
-
 import androidx.navigation.fragment.findNavController
 import com.example.projetointegradormarvel.characters.CardCharacterClickListener
 import com.example.projetointegradormarvel.comics.CardComicsClickListener
