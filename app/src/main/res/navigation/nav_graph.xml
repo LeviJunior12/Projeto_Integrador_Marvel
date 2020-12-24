@@ -40,11 +40,23 @@
         android:name="com.example.projetointegradormarvel.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" />
+
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.projetointegradormarvel.LoginActivity"
         android:label="activity_login"
-        tools:layout="@layout/activity_login" >
-    </activity>
+        tools:layout="@layout/activity_login" />
+
+    <action
+        android:id="@+id/action_global_nav_character"
+        app:destination="@id/nav_character" />
+
+    <action
+        android:id="@+id/action_global_nav_comics"
+        app:destination="@id/nav_comics" />
+
+    <action
+        android:id="@+id/action_global_nav_creators"
+        app:destination="@id/nav_creators" />
 
 </navigation>
