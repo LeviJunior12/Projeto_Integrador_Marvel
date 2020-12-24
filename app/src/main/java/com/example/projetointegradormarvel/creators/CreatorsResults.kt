@@ -2,6 +2,7 @@ package com.example.projetointegradormarvel.creators
 
 import com.example.projetointegradormarvel.Thumbnail
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 class CreatorsResults(
 
@@ -19,4 +20,5 @@ class CreatorsResults(
 //    @SerializedName("stories") val stories : Stories,
 //    @SerializedName("events") val events : Events,
 //    @SerializedName("urls") val urls : List<Urls>
-)
+
+): Serializable

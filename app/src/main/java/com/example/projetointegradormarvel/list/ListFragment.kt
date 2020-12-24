@@ -11,16 +11,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.projetointegradormarvel.CardClickListener
+import com.example.projetointegradormarvel.creators.CardCreatorsClickListener
 import com.example.projetointegradormarvel.R
-import com.example.projetointegradormarvel.characters.CharacterAdapter
 import com.example.projetointegradormarvel.home.HomeViewModel
 import com.example.projetointegradormarvel.webService
-import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
-class ListFragment : Fragment(), CardClickListener {
-
+class ListFragment : Fragment() {
     private val viewModel by viewModels<HomeViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelCLass: Class<T>): T {
@@ -39,7 +36,8 @@ class ListFragment : Fragment(), CardClickListener {
 
         view.rv_list.layoutManager = GridLayoutManager(view.context, 3)
         viewModel.listCharacters.observe(viewLifecycleOwner, {
-            rv_list.adapter = CharacterAdapter(it)
+//            rv_list.adapter = CharacterAdapter(it, this)
+
         })
         // TODO: Fix Gridlayout in Horizontal Mode
 
@@ -47,13 +45,13 @@ class ListFragment : Fragment(), CardClickListener {
     }
 
 
-    override fun onCardClickListener(position: Int) {
-        viewModel.listComics.observe(this, {
-            val bundle = bundleOf("chave" to it[position])
-            findNavController().navigate(R.id.nav_host_fragment, bundle)
-        })
-        //   TODO: fix this list
-    }
+//    override fun onCardClickListener(position: Int) {
+//        viewModel.listComics.observe(this, {
+//            val bundle = bundleOf("chave" to it[position])
+//            findNavController().navigate(R.id.nav_host_fragment, bundle)
+//        })
+//        //   TODO: fix this list
+//    }
 }
 
 

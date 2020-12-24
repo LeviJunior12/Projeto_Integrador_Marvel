@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.projetointegradormarvel.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_comics.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +37,19 @@ class ComicsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_comics, container, false)
+        val view = inflater.inflate(R.layout.fragment_comics, container, false)
+
+        val data = arguments?.get("data") as ComicsResults
+
+        val imgURL =
+            data.thumbnail.path.replace("http", "https") + "." + data.thumbnail.extension
+
+        Picasso.get().load(imgURL).into(view.iv_frag_comics_image)
+
+        view.tv_frag_comics_title.text = data.title
+        view.tv_frag_comics_description.text = data.description
+
+        return view
     }
 
     companion object {

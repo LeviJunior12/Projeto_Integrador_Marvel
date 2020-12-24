@@ -11,18 +11,19 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projetointegradormarvel.CardClickListener
+import com.example.projetointegradormarvel.creators.CardCreatorsClickListener
 import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.characters.CharacterAdapter
 import com.example.projetointegradormarvel.comics.ComicAdapter
 import com.example.projetointegradormarvel.creators.CreatorAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
-
 import androidx.navigation.fragment.findNavController
+import com.example.projetointegradormarvel.characters.CardCharacterClickListener
+import com.example.projetointegradormarvel.comics.CardComicsClickListener
 import com.example.projetointegradormarvel.webService
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : Fragment(), CardClickListener {
+class HomeFragment : Fragment(), CardCreatorsClickListener, CardCharacterClickListener, CardComicsClickListener {
     companion object {
         fun newInstance() = HomeFragment()
     }
@@ -49,28 +50,50 @@ class HomeFragment : Fragment(), CardClickListener {
         view.rv_characters.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
         viewModel.listCharacters.observe(viewLifecycleOwner, {
-            rv_characters.adapter = CharacterAdapter(it)
+            rv_characters.adapter = CharacterAdapter(it, this)
         })
 
         view.rv_comics.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
         viewModel.listComics.observe(viewLifecycleOwner, {
-            rv_comics.adapter = ComicAdapter(it)
+            rv_comics.adapter = ComicAdapter(it, this)
         })
 
         view.rv_creators.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
         viewModel.listCreators.observe(viewLifecycleOwner, {
-            rv_creators.adapter = CreatorAdapter(it)
+            rv_creators.adapter = CreatorAdapter(it, this)
         })
 
         return view
     }
 
-    override fun onCardClickListener(position: Int) {
+    override fun onCardCreatorsClickListener(position: Int) {
+
+        viewModel.listCreators.observe(this, {
+            val data = it[position]
+
+            val bundle = bundleOf("data" to data)
+            findNavController().navigate(R.id.nav_creators, bundle)
+        })
+    }
+
+    override fun onCardCharacterClickListener(position: Int) {
+        viewModel.listCharacters.observe(this, {
+
+            val data = it[position]
+
+            val bundle = bundleOf("data" to data)
+            findNavController().navigate(R.id.nav_character, bundle)
+        })
+    }
+
+    override fun onCardComicsClickListener(position: Int) {
         viewModel.listComics.observe(this, {
-            val bundle = bundleOf("chave" to it[position])
-            findNavController().navigate(R.id.nav_host_fragment, bundle)
+            val data = it[position]
+
+            val bundle = bundleOf("data" to data)
+            findNavController().navigate(R.id.nav_comics, bundle)
         })
     }
 }

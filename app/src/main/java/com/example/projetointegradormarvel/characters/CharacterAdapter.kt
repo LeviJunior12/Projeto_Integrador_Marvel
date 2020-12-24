@@ -11,7 +11,8 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class CharacterAdapter(
-    private val listCharacters: List<CharactersResults>
+    private val listCharacters: List<CharactersResults>, private val click: CardCharacterClickListener
+
 ) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -29,8 +30,12 @@ class CharacterAdapter(
         holder.titleTextView.text = listCharacters[position].name
 
         val imgURL =
-            listCharacters[position].thumbnail.path + "." + listCharacters[position].thumbnail.extension
+            listCharacters[position].thumbnail.path.replace("http", "https") + "." + listCharacters[position].thumbnail.extension
         Picasso.get().load(imgURL).into(holder.thumbImageView)
+
+        holder.itemView.setOnClickListener {
+            click.onCardCharacterClickListener(position)
+        }
     }
 
     inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

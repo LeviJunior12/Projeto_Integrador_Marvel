@@ -2,6 +2,7 @@ package com.example.projetointegradormarvel.comics
 
 import com.example.projetointegradormarvel.Thumbnail
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class ComicsResults(
 
@@ -11,4 +12,5 @@ data class ComicsResults(
     @SerializedName("pageCount") val pageCount: Int,
     @SerializedName("resourceURI") val resourceURI: String,
     @SerializedName("thumbnail") val thumbnail: Thumbnail
-)
+
+): Serializable

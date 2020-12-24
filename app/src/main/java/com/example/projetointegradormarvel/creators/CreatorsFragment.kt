@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.projetointegradormarvel.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_creators.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +37,18 @@ class CreatorsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_creators, container, false)
+        val view = inflater.inflate(R.layout.fragment_creators, container, false)
+
+        val data = arguments?.get("data") as CreatorsResults
+
+        val imgURL =
+            data.thumbnail.path.replace("http", "https") + "." + data.thumbnail.extension
+
+        Picasso.get().load(imgURL).into(view.iv_frag_creators_image)
+        view.tv_frag_creators_title.text = data.fullName
+        view.tv_frag_creators_description.text = data.firstName
+
+        return view
     }
 
     companion object {

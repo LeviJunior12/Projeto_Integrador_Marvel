@@ -3,6 +3,8 @@ package com.example.projetointegradormarvel.characters
 import com.example.projetointegradormarvel.Thumbnail
 import com.example.projetointegradormarvel.comics.Comics
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 
 class CharactersResults(
 
@@ -17,4 +19,4 @@ class CharactersResults(
 //    @SerializedName("stories") val stories : Stories,
 //    @SerializedName("events") val events : Events,
 //    @SerializedName("urls") val urls : List<Urls>
-)
+): Serializable
