@@ -1,6 +1,8 @@
 package com.example.projetointegradormarvel
 
+import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.InputDevice
@@ -13,6 +15,7 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         getView()
+        handleIntent(intent)
     }
 
     private fun View.hideKeyboard(){
@@ -22,5 +25,14 @@ class SearchActivity : AppCompatActivity() {
 
     private fun getView(): View {
         return window.decorView.findViewById(android.R.id.content)
+    }
+
+    private fun handleIntent(intent: Intent) {
+        if (Intent.ACTION_SEARCH == intent.action) {
+            val query = intent.getStringExtra(SearchManager.QUERY)
+            //
+            // TODO: use the query to search data
+            //
+        }
     }
 }
