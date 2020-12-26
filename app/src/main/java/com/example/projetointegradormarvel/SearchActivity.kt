@@ -29,8 +29,10 @@ class SearchActivity : AppCompatActivity() {
 
     private fun handleIntent(intent: Intent) {
         if (Intent.ACTION_SEARCH == intent.action) {
-            val query = intent.getStringExtra(SearchManager.QUERY)
-            //
+            val query = intent.getStringExtra(SearchManager.QUERY)?.also { query ->
+//                doSearch(query)
+            }
+                        //
             // TODO: use the query to search data
             //
         }

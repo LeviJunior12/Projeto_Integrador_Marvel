@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.SearchView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -17,6 +18,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,9 +50,9 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment -> toolbar.visibility = View.GONE
-                R.id.signupFragment -> toolbar.visibility = View.GONE
-                else -> toolbar.visibility = View.VISIBLE
+                R.id.loginFragment -> appBarLayout.visibility = View.GONE
+                R.id.signupFragment -> appBarLayout.visibility = View.GONE
+                else -> appBarLayout.visibility = View.VISIBLE
             }
         }
     }
@@ -61,10 +63,22 @@ class MainActivity : AppCompatActivity() {
 
         // Associate searchable configuration with the SearchView
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        (menu.findItem(R.id.search).actionView as SearchView).apply {
+        val searchView = menu.findItem(R.id.search).actionView as SearchView
+        val logo: ImageView = findViewById(R.id.logo)
+
+        searchView.apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            maxWidth = Integer.MAX_VALUE
         }
 
+        searchView.setOnSearchClickListener {
+            logo.visibility = View.GONE
+        }
+
+        searchView.setOnCloseListener {
+            logo.visibility = View.VISIBLE
+            false
+        }
         return true
     }
 
@@ -74,10 +88,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-//        R.id.action_search -> {
-//            // User chose the "Settings" item
-//            val intent = Intent(this, SearchActivity::class.java)
-//            startActivity(intent)
+//        R.id.search -> {
+////             User chose the "Settings" item
+//           val intent = Intent(this, SearchActivity::class.java)
+//           startActivity(intent)
 //            true
 //        }
 
@@ -91,5 +105,4 @@ class MainActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
     }
-
 }
