@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -97,6 +98,17 @@ class MainActivity : AppCompatActivity() {
 
         R.id.action_favorite -> {
             // User chose the "Favorite" action
+            when {
+                !item.isChecked -> {
+                    item.isChecked = true
+                    item.setIcon(R.drawable.ic_star_fill)
+                }
+                else -> {
+                    item.isChecked = false
+                    item.setIcon(R.drawable.ic_round_star_outline_24)
+                }
+            }
+
             true
         }
 
