@@ -21,9 +21,7 @@
             android:textAlignment="textStart"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold">
-
-        </TextView>
+            android:textStyle="bold"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_characters"
@@ -31,24 +29,6 @@
             android:layout_height="match_parent"
             android:orientation="horizontal" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="6dp"
-            android:paddingVertical="4dp"
-            android:text="@string/menu_creators"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold">
-
-        </TextView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_creators"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" />
 
         <TextView
             android:layout_width="match_parent"
@@ -59,12 +39,29 @@
             android:textAlignment="textStart"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold">
+            android:textStyle="bold"/>
 
-        </TextView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_comics"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="4dp"
+            android:text="@string/menu_creators"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_creators"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal" />

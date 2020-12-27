@@ -5,13 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class CreatorAdapter(
-    private val listCreators: List<CreatorsResults>, private val creatorsClick: CardCreatorsClickListener
+    private val listCreators: List<CreatorsResults>,
+    private val parentFragment: Fragment,
 ) : RecyclerView.Adapter<CreatorAdapter.CreatorViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreatorViewHolder {
@@ -32,7 +36,8 @@ class CreatorAdapter(
         Picasso.get().load(imgURL).into(holder.thumbImageView)
 
         holder.itemView.setOnClickListener {
-            creatorsClick.onCardCreatorsClickListener(position)
+            val bundle = bundleOf("data" to listCreators[position])
+            parentFragment.findNavController().navigate(R.id.action_global_nav_creators, bundle)
         }
     }
 

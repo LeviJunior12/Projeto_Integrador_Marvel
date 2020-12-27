@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/nav_home"
@@ -40,11 +40,47 @@
         android:name="com.example.projetointegradormarvel.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" />
+
     <activity
         android:id="@+id/loginActivity"
-        android:name="com.example.projetointegradormarvel.LoginActivity"
+        android:name="com.example.projetointegradormarvel.z_LoginActivity"
         android:label="activity_login"
-        tools:layout="@layout/activity_login" >
-    </activity>
+        tools:layout="@layout/z_activity_login" />
+
+    <action
+        android:id="@+id/action_global_nav_character"
+        app:destination="@id/nav_character" />
+
+    <action
+        android:id="@+id/action_global_nav_comics"
+        app:destination="@id/nav_comics" />
+
+    <action
+        android:id="@+id/action_global_nav_creators"
+        app:destination="@id/nav_creators" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.projetointegradormarvel.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.projetointegradormarvel.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signupFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
 </navigation>

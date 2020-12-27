@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:opacity="opaque"> <!-- android:opacity="opaque" should be here -->
+    <item>
+        <color android:color="@color/background_grey"/>
+    </item>
+    <item
+        android:drawable="@drawable/logo_app"
+        android:gravity="center_horizontal|center_vertical"
+        android:width="350dp"
+        android:height="200dp" />
+</layer-list>

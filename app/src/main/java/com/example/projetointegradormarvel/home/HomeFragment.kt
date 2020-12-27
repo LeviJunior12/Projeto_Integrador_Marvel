@@ -1,32 +1,24 @@
 package com.example.projetointegradormarvel.home
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projetointegradormarvel.creators.CardCreatorsClickListener
 import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.characters.CharacterAdapter
 import com.example.projetointegradormarvel.comics.ComicAdapter
 import com.example.projetointegradormarvel.creators.CreatorAdapter
-import kotlinx.android.synthetic.main.fragment_home.*
-import androidx.navigation.fragment.findNavController
-import com.example.projetointegradormarvel.characters.CardCharacterClickListener
-import com.example.projetointegradormarvel.comics.CardComicsClickListener
 import com.example.projetointegradormarvel.webService
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : Fragment(), CardCreatorsClickListener, CardCharacterClickListener, CardComicsClickListener {
-    companion object {
-        fun newInstance() = HomeFragment()
-    }
+class HomeFragment : Fragment() {
 
     private val viewModel by viewModels<HomeViewModel> {
         object : ViewModelProvider.Factory {
@@ -66,34 +58,5 @@ class HomeFragment : Fragment(), CardCreatorsClickListener, CardCharacterClickLi
         })
 
         return view
-    }
-
-    override fun onCardCreatorsClickListener(position: Int) {
-
-        viewModel.listCreators.observe(this, {
-            val data = it[position]
-
-            val bundle = bundleOf("data" to data)
-            findNavController().navigate(R.id.nav_creators, bundle)
-        })
-    }
-
-    override fun onCardCharacterClickListener(position: Int) {
-        viewModel.listCharacters.observe(this, {
-
-            val data = it[position]
-
-            val bundle = bundleOf("data" to data)
-            findNavController().navigate(R.id.nav_character, bundle)
-        })
-    }
-
-    override fun onCardComicsClickListener(position: Int) {
-        viewModel.listComics.observe(this, {
-            val data = it[position]
-
-            val bundle = bundleOf("data" to data)
-            findNavController().navigate(R.id.nav_comics, bundle)
-        })
     }
 }

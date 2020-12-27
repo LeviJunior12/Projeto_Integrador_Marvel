@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.projetointegradormarvel.creators.CardCreatorsClickListener
 import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.home.HomeViewModel
 import com.example.projetointegradormarvel.webService

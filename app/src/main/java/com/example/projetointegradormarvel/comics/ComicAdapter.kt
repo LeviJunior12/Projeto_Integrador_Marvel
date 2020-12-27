@@ -5,14 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class ComicAdapter(
-    private val listComics: List<ComicsResults>, private val click: CardComicsClickListener
-
+    private val listComics: List<ComicsResults>,
+    private val parentFragment: Fragment,
 ) : RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
@@ -33,7 +36,8 @@ class ComicAdapter(
         Picasso.get().load(imgURL).into(holder.thumbImageView)
 
         holder.itemView.setOnClickListener {
-            click.onCardComicsClickListener(position)
+            val bundle = bundleOf("data" to listComics[position])
+            parentFragment.findNavController().navigate(R.id.action_global_nav_comics, bundle)
         }
     }
 

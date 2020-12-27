@@ -5,14 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
 class CharacterAdapter(
-    private val listCharacters: List<CharactersResults>, private val click: CardCharacterClickListener
-
+    private val listCharacters: List<CharactersResults>,
+    private val parentFragment: Fragment,
 ) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -26,7 +29,6 @@ class CharacterAdapter(
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-
         holder.titleTextView.text = listCharacters[position].name
 
         val imgURL =
@@ -34,7 +36,8 @@ class CharacterAdapter(
         Picasso.get().load(imgURL).into(holder.thumbImageView)
 
         holder.itemView.setOnClickListener {
-            click.onCardCharacterClickListener(position)
+            val bundle = bundleOf("data" to listCharacters[position])
+            parentFragment.findNavController().navigate(R.id.action_global_nav_character, bundle)
         }
     }
 
