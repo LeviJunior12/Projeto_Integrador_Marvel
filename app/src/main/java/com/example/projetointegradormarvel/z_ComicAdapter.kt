@@ -1,4 +1,4 @@
-package com.example.projetointegradormarvel.comics
+package com.example.projetointegradormarvel
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +9,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projetointegradormarvel.R
+import com.example.projetointegradormarvel.comics.ComicsResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
-class ComicAdapter(
+class z_ComicAdapter(
     private val listComics: List<ComicsResults>,
     private val parentFragment: Fragment,
-) : RecyclerView.Adapter<ComicAdapter.ComicViewHolder>() {
+) : RecyclerView.Adapter<z_ComicAdapter.ComicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
         val view = LayoutInflater.from(parent.context)

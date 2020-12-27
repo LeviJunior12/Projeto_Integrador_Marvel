@@ -1,4 +1,4 @@
-package com.example.projetointegradormarvel.characters
+package com.example.projetointegradormarvel
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +9,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projetointegradormarvel.R
+import com.example.projetointegradormarvel.characters.CharactersResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
-class CharacterAdapter(
+class z_CharacterAdapter(
     private val listCharacters: List<CharactersResults>,
     private val parentFragment: Fragment,
-) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
+) : RecyclerView.Adapter<z_CharacterAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         val view = LayoutInflater.from(parent.context)

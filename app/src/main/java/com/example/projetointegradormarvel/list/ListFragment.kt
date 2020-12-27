@@ -10,8 +10,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projetointegradormarvel.R
+import com.example.projetointegradormarvel.z_CharacterAdapter
 import com.example.projetointegradormarvel.home.HomeViewModel
 import com.example.projetointegradormarvel.webService
+import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
@@ -31,9 +33,11 @@ class ListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
+        viewModel.getCharacters(1)
+
         view.rv_list.layoutManager = GridLayoutManager(view.context, 3)
         viewModel.listCharacters.observe(viewLifecycleOwner, {
-//            rv_list.adapter = CharacterAdapter(it, this)
+            rv_list.adapter = z_CharacterAdapter(it, this)
 
         })
         // TODO: Fix Gridlayout in Horizontal Mode

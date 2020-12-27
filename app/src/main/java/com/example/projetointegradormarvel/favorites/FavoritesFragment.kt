@@ -6,15 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
-import com.example.projetointegradormarvel.characters.CharacterAdapter
-import com.example.projetointegradormarvel.characters.Characters
-import com.example.projetointegradormarvel.comics.ComicAdapter
-import com.example.projetointegradormarvel.comics.Comics
-import com.example.projetointegradormarvel.creators.CreatorAdapter
-import com.example.projetointegradormarvel.creators.Creators
 
 class FavoritesFragment : Fragment() {
 

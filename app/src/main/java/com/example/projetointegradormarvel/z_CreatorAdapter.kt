@@ -1,4 +1,4 @@
-package com.example.projetointegradormarvel.creators
+package com.example.projetointegradormarvel
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +9,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projetointegradormarvel.R
+import com.example.projetointegradormarvel.creators.CreatorsResults
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
-class CreatorAdapter(
+class z_CreatorAdapter(
     private val listCreators: List<CreatorsResults>,
     private val parentFragment: Fragment,
-) : RecyclerView.Adapter<CreatorAdapter.CreatorViewHolder>() {
+) : RecyclerView.Adapter<z_CreatorAdapter.CreatorViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreatorViewHolder {
         val view = LayoutInflater.from(parent.context)
