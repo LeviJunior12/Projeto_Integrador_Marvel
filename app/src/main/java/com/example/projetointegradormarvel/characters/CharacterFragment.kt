@@ -5,8 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.comics.ComicsResults
+import com.example.projetointegradormarvel.database.AppDatabase
+import com.example.projetointegradormarvel.models.model.Character
+import com.example.projetointegradormarvel.services.Repository
+import com.example.projetointegradormarvel.services.RepositoryImpl
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_character.*
 import kotlinx.android.synthetic.main.fragment_character.view.*
@@ -25,6 +32,9 @@ class CharacterFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var db: AppDatabase
+    private lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +60,25 @@ class CharacterFragment : Fragment() {
         view.tv_frag_character_title.text = data.name
         view.tv_frag_character_description.text = data.description
 
+        initBD()
+
+        repository = RepositoryImpl(db.characterDAO())
+
+        val viewModel by viewModels<CharacterViewModel> {
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                    return CharacterViewModel(repository) as T
+                }
+            }
+        }
+
+        // viewModel.addCharacter(Character(data.id, data.name, data.description))
+
         return view
+    }
+
+    fun initBD() {
+        db = AppDatabase.invoke(requireContext().applicationContext)
     }
 
     companion object {

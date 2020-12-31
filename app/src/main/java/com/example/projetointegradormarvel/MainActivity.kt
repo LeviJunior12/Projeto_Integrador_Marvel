@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     item.isChecked = false
-                    item.setIcon(R.drawable.ic_round_star_outline_24)
+                    item.setIcon(R.drawable.ic_star_border)
                 }
             }
 
