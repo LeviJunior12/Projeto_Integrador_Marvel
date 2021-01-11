@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Marvel Comics Wiki</string>
+    <string name="nav_header_desc">Navigation Header Image</string>
+    <string name="nav_header_title">Marvel Comics Wiki</string>
+    <string name="nav_header_subtitle">Projeto Integrador</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_home">Home</string>
+    <string name="action_favorite">Favorite</string>
+    <string name="action_search">Search</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_characters">Characters</string>
+    <string name="menu_creators">Creators</string>
+    <string name="menu_comics">Comics</string>
+    <string name="fav_character">Favorite Characters</string>
+    <string name="fav_creators">Favorite Creators</string>
+    <string name="fav_comics">Favorite Comics</string>
+    <string name="txt_login">LOGIN</string>
+    <string name="text_cadastro">SIGN UP</string>
+    <string name="txt_email">E-mail</string>
+    <string name="txt_senha">Password</string>
+    <string name="txt_recuperarSenha">Forgot password?</string>
+    <string name="tx_tituloCadastro">Create your account</string>
+    <string name="txt_confsenha">Repeat password</string>
+    <string name="txt_nome">Name</string>
+    <string name="txt_cancela">CANCEL</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue, sem at congue ullamcorper, turpis enim fermentum mauris, ut volutpat velit lorem eu leo. Aliquam ut turpis blandit, lacinia lacus ac, rutrum diam. Suspendisse at aliquam dolor. Vestibulum feugiat leo urna, at lobortis ipsum ornare quis. Donec venenatis erat ac massa.</string>
+    <string name="description_america">Vowing to serve his country any way he could, young Steve Rogers took the super soldier serum to become America\'s one-man army. Fighting for the red, white and blue for over 60 years, Captain America is the living, breathing symbol of freedom and liberty.</string>
+    <string name="search_hint">Search Marvel Wiki</string>
+
+    <string name="characters">Characters</string>
+    <string name="Comics">Comics</string>
+    <string name="creators">Creators</string>
+    <string name="logo">Logo</string>
+    <string name="nome_busca">nome busca</string>
+    <string name="tipo_busca">tipo busca: </string>
+    <string name="title_activity_busca">BuscaActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+</resources>
