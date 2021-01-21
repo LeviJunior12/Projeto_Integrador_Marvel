@@ -22,7 +22,7 @@ class SignupFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_signup, container, false)
 
         view.btn_confCadastro.setOnClickListener {
-            findNavController().navigate(R.id.action_signupFragment_to_nav_home)
+            findNavController().navigate(R.id.action_signupFragment_to_homeFragment)
         }
 
         view.btn_cancelaCad.setOnClickListener {

@@ -22,7 +22,7 @@ class LoginFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         view.btn_login.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_nav_home)
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
         view.btn_cadastro.setOnClickListener {

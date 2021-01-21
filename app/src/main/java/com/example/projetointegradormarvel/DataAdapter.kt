@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.characters.CharactersResults
 import com.example.projetointegradormarvel.comics.ComicsResults
 import com.example.projetointegradormarvel.creators.CreatorsResults
+import com.example.projetointegradormarvel.home.HomeFragmentDirections
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_card.view.*
 
@@ -74,9 +75,13 @@ class DataAdapter(
             Picasso.get().load(imgURL).into(thumbImageView)
 
             titleTextView.text = item.name
+//            itemView.setOnClickListener {
+//                parentFragment.findNavController()
+//                    .navigate(R.id.action_global_nav_character, bundleOf("data" to item))
+//            }
             itemView.setOnClickListener {
-                parentFragment.findNavController()
-                    .navigate(R.id.action_global_nav_character, bundleOf("data" to item))
+                val directions = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(item, null, null)
+                parentFragment.findNavController().navigate(directions)
             }
         }
     }
