@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -89,8 +90,7 @@ class HomeFragment : Fragment() {
                 rv_characters.adapter = CharacterAdapter(it, this)
 
                 if(viewModel.listCharacters.value != null) {
-                    // Adiciona no bd
-                    // addCharactersDatabase(viewModel.listCharacters.value!!)
+                    addCharactersDatabase(viewModel.listCharacters.value!!)
                 }
 
             })
@@ -101,7 +101,7 @@ class HomeFragment : Fragment() {
                 rv_comics.adapter = ComicAdapter(it, this)
 
                 if(viewModel.listComics.value != null) {
-                    // addComicsDatabase(viewModel.listComics.value!!)
+                    addComicsDatabase(viewModel.listComics.value!!)
                 }
 
             })
@@ -112,7 +112,7 @@ class HomeFragment : Fragment() {
                 rv_creators.adapter = CreatorAdapter(it, this)
 
                 if(viewModel.listCreators.value != null) {
-                    // addCreatorsDatabase(viewModel.listCreators.value!!)
+                    addCreatorsDatabase(viewModel.listCreators.value!!)
                 }
             })
 
@@ -120,7 +120,6 @@ class HomeFragment : Fragment() {
             getAllCharacterDatabase()
             getAllComicsDatabase()
             getAllCreatorsDatabase()
-            Log.i("OFFLINE", "OFFLINE APPLICATION")
 
             view.rv_characters.layoutManager =
                 LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
