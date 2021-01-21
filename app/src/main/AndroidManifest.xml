@@ -11,16 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegradorMarvel">
-
-        <activity android:name=".SearchActivity"
-            android:launchMode="singleTop" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
+        <activity android:name=".search.BuscaActivity"/>
 
         <activity
             android:name=".MainActivity"
@@ -28,20 +19,20 @@
             android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data android:name="android.app.default_searchable"
-                android:value=".SearchActivity" />
+
         </activity>
 
 
         <activity
             android:name=".z_SignupActivity"
             android:windowSoftInputMode="stateVisible|adjustPan" />
-
         <activity
             android:name=".z_LoginActivity"
             android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity android:name=".z_SplashScreen" />
     </application>
+
 </manifest>

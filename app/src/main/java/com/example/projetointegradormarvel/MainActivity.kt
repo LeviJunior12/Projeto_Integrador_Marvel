@@ -1,15 +1,11 @@
 package com.example.projetointegradormarvel
 
-import android.app.SearchManager
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -18,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.projetointegradormarvel.search.BuscaActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_ProjetoIntegradorMarvel)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -61,26 +59,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_top_items, menu)
-
-        // Associate searchable configuration with the SearchView
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.search).actionView as SearchView
-        val logo: ImageView = findViewById(R.id.logo)
-
-        searchView.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            maxWidth = Integer.MAX_VALUE
-        }
-
-        searchView.setOnSearchClickListener {
-            logo.visibility = View.GONE
-        }
-
-        searchView.setOnCloseListener {
-            logo.visibility = View.VISIBLE
-            false
-        }
-        return true
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -89,12 +68,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-//        R.id.search -> {
-////             User chose the "Settings" item
-//           val intent = Intent(this, SearchActivity::class.java)
-//           startActivity(intent)
-//            true
-//        }
+        R.id.search-> {
+            callSearch()
+            true
+        }
 
         R.id.action_favorite -> {
             // User chose the "Favorite" action
@@ -116,5 +93,9 @@ class MainActivity : AppCompatActivity() {
             // If we got here, the user's action
             super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun callSearch() {
+        startActivity(Intent(this, BuscaActivity::class.java))
     }
 }
