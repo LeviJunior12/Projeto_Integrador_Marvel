@@ -2,16 +2,16 @@ package com.example.projetointegradormarvel.creators
 
 import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.example.projetointegradormarvel.Thumbnail
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-@Entity(tableName = "creators")
+@Entity(tableName = "characters",indices = arrayOf( Index(value = ["id"], unique = true)))
 data class CreatorsResults(
 
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey val id: Int,
     @SerializedName("firstName") val firstName: String,
     @SerializedName("middleName") val middleName: String,
     @SerializedName("lastName") val lastName: String,
@@ -21,6 +21,11 @@ data class CreatorsResults(
     @Embedded
     @SerializedName("thumbnail") val thumbnail: Thumbnail,
     @SerializedName("resourceURI") val resourceURI: String
+
+    // Encontrei esse comando que talvez seja útil para tratamento de imagens,checar depois
+    //@Ignore val picture: Bitmap?
+    //Imagem copiada em todas as XResults.kt
+
 //    @SerializedName("comics") val comics : Comics,
 //    @SerializedName("series") val series : Series,
 //    @SerializedName("stories") val stories : Stories,
