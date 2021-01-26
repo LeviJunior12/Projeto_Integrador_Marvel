@@ -12,28 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegradorMarvel">
-        <activity android:name=".search.BuscaActivity"/>
+        <activity android:name=".search.BuscaActivity" />
 
         <activity
             android:name=".MainActivity"
             android:theme="@style/SplashTheme"
-            android:windowSoftInputMode="stateVisible|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-
+            android:windowSoftInputMode="stateVisible|adjustPan" />
 
         <activity
             android:name=".z_SignupActivity"
             android:windowSoftInputMode="stateVisible|adjustPan" />
+
         <activity
-            android:name=".z_LoginActivity"
-            android:windowSoftInputMode="stateVisible|adjustPan" />
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".z_SplashScreen" />
     </application>
-
 </manifest>

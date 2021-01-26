@@ -4,7 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_grey"
-    tools:context=".z_LoginActivity">
+    tools:context=".LoginActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        style="?android:attr/progressBarStyleHorizontal"/>
 
     <ImageView
         android:id="@+id/iv_marvel"
@@ -66,7 +74,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_login"
+                    android:id="@+id/btnLogIn"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -75,7 +83,7 @@
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/btn_cadastro"
+                    android:id="@+id/btnSignUp"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

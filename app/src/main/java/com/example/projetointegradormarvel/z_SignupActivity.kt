@@ -28,7 +28,7 @@ class z_SignupActivity : AppCompatActivity() {
     }
 
     fun callLogin(){
-        var intent = Intent(this, z_LoginActivity::class.java)
+        var intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
 }
