@@ -32,4 +32,24 @@ class HomeViewModel(private val webService: WebService) : ViewModel() {
             listCreators.value = webService.getCreatorsRepo(offset).data.results
         }
     }
+
+    //Chamando da API para a Busca
+
+    fun getCharacterSearch(){
+        viewModelScope.launch {
+            listCharacters.value = webService.getCharactersSearch().data.results
+        }
+    }
+
+    fun getComicSearch(){
+        viewModelScope.launch {
+            listComics.value = webService.getComicsSearch().data.results
+        }
+    }
+
+    fun getCreatorSearch(){
+        viewModelScope.launch {
+            listCreators.value = webService.getCreatorsSearch().data.results
+        }
+    }
 }

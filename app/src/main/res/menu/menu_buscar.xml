@@ -9,11 +9,4 @@
         android:title="@string/action_search"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/action_favorite_menu"
-        android:icon="@drawable/ic_round_star_outline_24"
-        android:orderInCategory="100"
-        android:iconTint="@color/black"
-        android:title="@string/action_favorite"
-        app:showAsAction="ifRoom" />
 </menu>
