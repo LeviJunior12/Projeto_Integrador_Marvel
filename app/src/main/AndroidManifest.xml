@@ -18,7 +18,7 @@
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
-            android:name=".z_SignupActivity"
+            android:name=".SignupActivity"
             android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
             android:name=".LoginActivity"

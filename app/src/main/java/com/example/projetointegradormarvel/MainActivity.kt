@@ -15,6 +15,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.projetointegradormarvel.search.BuscaActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -49,13 +51,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                R.id.loginFragment -> appBarLayout.visibility = View.GONE
-                R.id.signupFragment -> appBarLayout.visibility = View.GONE
-                else -> appBarLayout.visibility = View.VISIBLE
-            }
-        }
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            when (destination.id) {
+//                R.id.loginFragment -> appBarLayout.visibility = View.GONE
+//                R.id.signupFragment -> appBarLayout.visibility = View.GONE
+//                else -> appBarLayout.visibility = View.VISIBLE
+//            }
+//        }
 
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -80,13 +82,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.search-> {
+        R.id.search -> {
             callSearch()
             true
         }
 
         R.id.action_favorite -> {
-            // User chose the "Favorite" action
             when {
                 !item.isChecked -> {
                     item.isChecked = true
@@ -97,12 +98,10 @@ class MainActivity : AppCompatActivity() {
                     item.setIcon(R.drawable.ic_round_star_outline_24)
                 }
             }
-
             true
         }
 
         else -> {
-            // If we got here, the user's action
             super.onOptionsItemSelected(item)
         }
     }
@@ -111,8 +110,13 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, BuscaActivity::class.java))
     }
 
-    private fun signOut()  {
+    private fun signOut() {
         Firebase.auth.signOut()
+        GoogleSignIn.getClient(
+            this,
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()
+        )
+            .signOut()
         startActivity(Intent(this, LoginActivity::class.java))
     }
 }

@@ -24,62 +24,56 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
 
-
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityLoginBinding
-
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var callbackManager: CallbackManager
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setProgressBar(binding.progressBar)
 
-        // Buttons
         binding.btnLogIn.setOnClickListener(this)
         binding.btnSignUp.setOnClickListener(this)
-//        binding.signOutButton.setOnClickListener(this)
-//        binding.verifyEmailButton.setOnClickListener(this)
-//        binding.reloadButton.setOnClickListener(this)
-
-        callbackManager = CallbackManager.Factory.create()
-
+        binding.btnGoogle.setOnClickListener(this)
         binding.btnFacebook.setOnClickListener {
-            LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile", "email"))
+            LoginManager.getInstance()
+                .logInWithReadPermissions(this, listOf("public_profile", "email"))
         }
 
-        // Callback registration
-        LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult?> {
-            override fun onSuccess(loginResult: LoginResult?) {
-                Log.d(TAG, "facebook:onSuccess:$loginResult")
-                if (loginResult != null) {
-                    handleFacebookAccessToken(loginResult.accessToken)
+        // Facebook callback registration
+        callbackManager = CallbackManager.Factory.create()
+
+        LoginManager.getInstance()
+            .registerCallback(callbackManager, object : FacebookCallback<LoginResult?> {
+
+                override fun onSuccess(loginResult: LoginResult?) {
+                    Log.d(TAG, "Facebook onSuccess: $loginResult")
+                    if (loginResult != null) {
+                        handleFacebookAccessToken(loginResult.accessToken)
+                    }
                 }
-                // Get User's Info
-            }
 
-            override fun onCancel() {
-                Log.d(TAG, "facebook:onCancel")
-                Toast.makeText(baseContext, "Login Cancelled", Toast.LENGTH_LONG).show()
-            }
+                override fun onCancel() {
+                    Log.d(TAG, "Facebook onCancel")
+                    Toast.makeText(baseContext, "Login Cancelled", Toast.LENGTH_LONG).show()
+                }
 
-            override fun onError(error: FacebookException) {
-                Log.d(TAG, "facebook:onError", error)
-                Toast.makeText(baseContext, error.message, Toast.LENGTH_LONG).show()
-            }
-        })
+                override fun onError(error: FacebookException) {
+                    Log.d(TAG, "Facebook onError", error)
+                    Toast.makeText(baseContext, error.message, Toast.LENGTH_LONG).show()
+                }
+            })
 
+        // Google sign in options
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-
-
-
 
         // Initialize Firebase Auth
         auth = Firebase.auth
@@ -88,9 +82,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     public override fun onStart() {
         super.onStart()
 
-        // Check if user is signed in (non-null) and update UI accordingly.
+        // Check if user is signed in
         val currentUser = auth.currentUser
-        if(currentUser != null){
+        if (currentUser != null) {
             reload()
         }
     }
@@ -115,8 +109,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 //                    updateUI(null)
                 }
 
@@ -147,8 +143,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 //                    updateUI(null)
                     // [START_EXCLUDE]
 //                    checkForMultiFactorFailure(task.exception!!)
@@ -164,9 +162,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             }
         // [END sign_in_with_email]
     }
-
-
-
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -212,8 +207,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     // [START_EXCLUDE]
 //                    val view = binding.mainLayout
                     // [END_EXCLUDE]
-                    Toast.makeText(baseContext, "Google Authentication Failed",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Google Authentication Failed",
+                        Toast.LENGTH_SHORT
+                    ).show()
 //                    Snackbar.make(view, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
 //                    updateUI(null)
                 }
@@ -242,8 +239,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 //                    updateUI(null)
                 }
 
@@ -299,14 +298,18 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         auth.currentUser!!.reload().addOnCompleteListener { task ->
             if (task.isSuccessful) {
 //                updateUI(auth.currentUser)
-                Toast.makeText(this@LoginActivity,
+                Toast.makeText(
+                    this@LoginActivity,
                     "Reload successful!",
-                    Toast.LENGTH_SHORT).show()
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 Log.e(TAG, "reload", task.exception)
-                Toast.makeText(this@LoginActivity,
+                Toast.makeText(
+                    this@LoginActivity,
                     "Failed to reload user.",
-                    Toast.LENGTH_SHORT).show()
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -378,7 +381,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             R.id.btnSignUp -> {
                 createAccount(binding.edEmail.text.toString(), binding.edPassword.text.toString())
             }
-            R.id.btnLogIn -> signIn(binding.edEmail.text.toString(), binding.edPassword.text.toString())
+            R.id.btnLogIn -> signIn(
+                binding.edEmail.text.toString(),
+                binding.edPassword.text.toString()
+            )
             R.id.btnGoogle -> signInGoogle()
 //            R.id.signOutButton -> signOut()
 //            R.id.verifyEmailButton -> sendEmailVerification()
@@ -386,7 +392,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-        fun callHome(user: FirebaseUser?) {
+    fun callHome(user: FirebaseUser?) {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
