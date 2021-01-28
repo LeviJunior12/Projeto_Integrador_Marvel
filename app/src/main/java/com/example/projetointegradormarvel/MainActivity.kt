@@ -16,6 +16,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.projetointegradormarvel.search.BuscaActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -52,6 +54,16 @@ class MainActivity : AppCompatActivity() {
                 R.id.loginFragment -> appBarLayout.visibility = View.GONE
                 R.id.signupFragment -> appBarLayout.visibility = View.GONE
                 else -> appBarLayout.visibility = View.VISIBLE
+            }
+        }
+
+        navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_logout -> {
+                    signOut()
+                    true
+                }
+                else -> false
             }
         }
     }
@@ -97,5 +109,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun callSearch() {
         startActivity(Intent(this, BuscaActivity::class.java))
+    }
+
+    private fun signOut()  {
+        Firebase.auth.signOut()
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 }
