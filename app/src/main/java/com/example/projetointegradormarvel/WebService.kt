@@ -3,9 +3,11 @@ package com.example.projetointegradormarvel
 import com.example.projetointegradormarvel.characters.Characters
 import com.example.projetointegradormarvel.comics.Comics
 import com.example.projetointegradormarvel.creators.Creators
+import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface WebService {
@@ -31,7 +33,7 @@ interface WebService {
     //Busca
 
     @GET("characters?ts=1&limit=9&apikey=f0d3d6558f5fac5abf6f59784dc534de&hash=9117113700bd92c2c9a3fb4bf4455d5f")
-    suspend fun getCharactersSearch(): Characters
+    suspend fun getCharactersSearch():Characters
 
     @GET("comics?formatType=comic&ts=1&limit=9&orderBy=-focDate&apikey=f0d3d6558f5fac5abf6f59784dc534de&hash=9117113700bd92c2c9a3fb4bf4455d5f")
     suspend fun getComicsSearch(): Comics

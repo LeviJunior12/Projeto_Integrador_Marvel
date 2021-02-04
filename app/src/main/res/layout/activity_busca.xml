@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".search.BuscaActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <ListView
+        android:id="@+id/list_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/marvelRed"
+        android:dividerHeight="2dp"
+        android:layout_below="@id/text_searchview"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/text_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/marvelRed"
+        android:iconifiedByDefault="false"
+        app:iconifiedByDefault="false"
+        app:queryHint="@string/action_search"
+        android:layout_alignParentTop="true"
+        />
+
+
+
+
+
+<!--    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayoutBusca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayoutBusca">
 
-    </FrameLayout>
+    </FrameLayout>-->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -2,10 +2,8 @@ package com.example.projetointegradormarvel.characters
 
 import androidx.room.Embedded
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.example.projetointegradormarvel.Thumbnail
-import com.example.projetointegradormarvel.comics.Comics
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
