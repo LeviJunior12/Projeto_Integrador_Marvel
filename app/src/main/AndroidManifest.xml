@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoIntegradorMarvel">
-        <activity android:name=".search.BuscaActivity" />
+        <activity android:name=".search.BuscaActivity">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/SplashTheme"

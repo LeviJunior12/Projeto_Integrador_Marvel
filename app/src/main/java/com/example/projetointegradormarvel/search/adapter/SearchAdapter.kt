@@ -22,7 +22,7 @@ class SearchAdapterCharacter(
     private var listCharacterSearch: List<CharactersResults>,
 ) : RecyclerView.Adapter<SearchAdapterCharacter.holderCharacter>(), Filterable { //CHARACTERS
 
-    lateinit var listCharacterSearchFilter: List<CharactersResults>
+    var listCharacterSearchFilter: List<CharactersResults> = listCharacterSearch
 
 /*    fun setData(listCharacter: List<CharactersResults>) {
         this.listCharacterSearch = listCharacter
@@ -44,9 +44,9 @@ class SearchAdapterCharacter(
 
         val itemHolder = listCharacterSearch[position]
 
-        val imgURL = listCharacterSearch[position].thumbnail.path.replace(
+        val imgURL = listCharacterSearch[position].thumbnail?.path?.replace(
             "http", "https"
-        ) + "." + listCharacterSearch[position].thumbnail.extension
+        ) + "." + listCharacterSearch[position].thumbnail?.extension
 
         Picasso.get().load(imgURL).into(holder.img)
 

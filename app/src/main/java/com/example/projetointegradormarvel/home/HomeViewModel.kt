@@ -35,11 +35,13 @@ class HomeViewModel(private val webService: WebService) : ViewModel() {
 
     //Chamando da API para a Busca
 
-    fun getCharacterSearch(){
+    fun getCharacterSearch() {
         viewModelScope.launch {
             listCharacters.value = webService.getCharactersSearch().data.results
         }
     }
+
+
 
     fun getComicSearch(){
         viewModelScope.launch {
