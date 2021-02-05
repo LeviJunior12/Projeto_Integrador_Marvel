@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
+import com.example.projetointegradormarvel.comics.ComicsResults
 import com.example.projetointegradormarvel.home.HomeViewModel
 import com.example.projetointegradormarvel.search.adapter.SearchAdapterComics
 import com.example.projetointegradormarvel.webService
@@ -41,7 +42,7 @@ class FragmentSearchComics : Fragment() {
         view.rv_listSearchComics.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
         viewModel.listComics.observe(viewLifecycleOwner, {
-            rv_listSearchComics.adapter = SearchAdapterComics(it)
+            rv_listSearchComics.adapter = SearchAdapterComics(it as ArrayList<ComicsResults>)
         })
 
         return view

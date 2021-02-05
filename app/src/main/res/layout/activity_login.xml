@@ -51,7 +51,8 @@
                     android:id="@+id/edEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/txt_email" />
+                    android:hint="@string/txt_email"
+                    android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -71,7 +72,6 @@
                 android:id="@+id/btnLogIn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:padding="15dp"
                 android:text="@string/txt_login"
                 android:textSize="18sp" />
 
@@ -80,7 +80,6 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:padding="15dp"
                 android:text="@string/create_account"
                 android:textColor="@color/white"
                 android:textSize="18sp" />

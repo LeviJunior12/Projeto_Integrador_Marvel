@@ -11,7 +11,7 @@ class z_SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.z_activity_splash_screen)
 
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.black))
+        window.statusBarColor = ContextCompat.getColor(this, R.color.background_grey)
 
         val image = findViewById<ImageView>(R.id.iv_marvel)
 

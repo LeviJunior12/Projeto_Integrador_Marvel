@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetointegradormarvel.R
+import com.example.projetointegradormarvel.characters.CharactersResults
 import com.example.projetointegradormarvel.home.HomeViewModel
 import com.example.projetointegradormarvel.search.adapter.SearchAdapterCharacter
 import com.example.projetointegradormarvel.webService
@@ -42,7 +42,7 @@ class FragmentSearchCharacter : Fragment() {
         view.rv_listSearchCharacter.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
         viewModel.listCharacters.observe(viewLifecycleOwner, {
-            rv_listSearchCharacter.adapter = SearchAdapterCharacter(it)
+            rv_listSearchCharacter.adapter = SearchAdapterCharacter(it as ArrayList<CharactersResults>)
         })
 
         return view

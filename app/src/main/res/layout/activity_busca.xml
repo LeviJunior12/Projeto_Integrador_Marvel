@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".search.BuscaActivity">
+<!--
 
     <ListView
         android:id="@+id/list_search"
@@ -26,11 +27,9 @@
         android:layout_alignParentTop="true"
         />
 
+-->
 
-
-
-
-<!--    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayoutBusca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,10 +40,10 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/text_searchview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/marvelRed"
+            app:queryHint="@string/action_search"
             android:iconifiedByDefault="false"
-            android:queryHint="@string/action_search"
             app:iconifiedByDefault="false"/>
 
 
@@ -91,16 +90,19 @@
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <FrameLayout
         android:id="@+id/flfragSearch"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="98dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayoutBusca">
 
-    </FrameLayout>-->
+    </FrameLayout>
+
 
 
 </RelativeLayout>
