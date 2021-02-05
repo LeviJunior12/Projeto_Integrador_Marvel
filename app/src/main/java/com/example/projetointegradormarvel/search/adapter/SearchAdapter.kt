@@ -19,7 +19,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SearchAdapterCharacter(
-    private var listCharacterSearch: List<CharactersResults>,
+    private var listCharacterSearch: ArrayList<CharactersResults>,
 ) : RecyclerView.Adapter<SearchAdapterCharacter.holderCharacter>(), Filterable { //CHARACTERS
 
     var listCharacterSearchFilter: List<CharactersResults> = listCharacterSearch
@@ -44,9 +44,9 @@ class SearchAdapterCharacter(
 
         val itemHolder = listCharacterSearch[position]
 
-        val imgURL = listCharacterSearch[position].thumbnail?.path?.replace(
+        val imgURL = listCharacterSearch[position].thumbnail.path.replace(
             "http", "https"
-        ) + "." + listCharacterSearch[position].thumbnail?.extension
+        ) + "." + listCharacterSearch[position].thumbnail.extension
 
         Picasso.get().load(imgURL).into(holder.img)
 
@@ -112,7 +112,7 @@ class SearchAdapterCharacter(
 
 
 class SearchAdapterComics(
-    private var listComicSearch: List<ComicsResults>,
+    private var listComicSearch: ArrayList<ComicsResults>,
 ) : RecyclerView.Adapter<SearchAdapterComics.holderComics>(), Filterable { //COMICS
 
     lateinit var listComicSearchFilter: ArrayList<ComicsResults>
@@ -214,7 +214,7 @@ class SearchAdapterComics(
 }
 
 class SearchAdapterCreators(
-    private var listCreatorSearch: List<CreatorsResults>,
+    private var listCreatorSearch: ArrayList<CreatorsResults>,
 ) : RecyclerView.Adapter<SearchAdapterCreators.holderCreator>(), Filterable {
     // Creators
 

@@ -39,8 +39,17 @@
             android:text="Capitain America"
             android:textColor="@color/white"
             android:textSize="24sp"
-            android:textStyle="bold|italic"
-            app:drawableEndCompat="@drawable/ic_baseline_share_24" />
+            android:textStyle="bold|italic" />
+
+        <ImageView
+            android:id="@+id/iv_share_creator"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_baseline_share_24"
+            android:textColor="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/ic_baseline_share_24"/>
 
         <TextView
             android:id="@+id/tv_frag_creators_description"
@@ -52,15 +61,6 @@
             android:textColor="@color/white"
             android:textSize="19sp" />
 
-        <TextView
-            android:id="@+id/tv_frag_creators_readmore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:text="Read more"
-            android:textAlignment="center"
-            android:textColor="#F06292"
-            android:textSize="19sp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

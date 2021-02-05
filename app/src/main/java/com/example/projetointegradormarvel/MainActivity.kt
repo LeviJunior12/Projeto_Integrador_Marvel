@@ -61,6 +61,10 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.search_activity ->{
+                    callSearch()
+                    true
+                }
                 R.id.nav_logout -> {
                     signOut()
                     true
@@ -73,6 +77,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_top_items, menu)
+//        menuInflater.inflate(R.menu.menu_buscar, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -82,12 +87,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+/*
         R.id.search -> {
             callSearch()
             true
         }
+*/
 
-        R.id.action_favorite -> {
+/*        R.id.action_favorite -> {
             when {
                 !item.isChecked -> {
                     item.isChecked = true
@@ -99,7 +106,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             true
-        }
+        }*/
+
+/*        R.id.search_menu -> {
+            callSearch()
+            true
+        }*/
 
         else -> {
             super.onOptionsItemSelected(item)
