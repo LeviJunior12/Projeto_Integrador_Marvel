@@ -18,4 +18,13 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <style name="Theme.ProjetoIntegradorMarvel.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ProjetoIntegradorMarvel.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ProjetoIntegradorMarvel.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

@@ -197,7 +197,7 @@ class BuscaActivity : AppCompatActivity() {
             alterColorCharacter(R.color.marvelRed)
             alterColorComic(R.color.white)
             alterColorCreator(R.color.white)
-            callFragCharacter()
+//            callFragCharacter()
         }
     }
 
@@ -224,14 +224,14 @@ class BuscaActivity : AppCompatActivity() {
         tvTabCharacter.setTextColor(ContextCompat.getColor(this, idCor))
     }
 
-    private fun callFragCharacter() {
-        val frag = FragmentSearchCharacter.newInstance()
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flfragSearch, frag)
-            commit()
-        }
+//    private fun callFragCharacter() {
+//        val frag = FragmentSearchCharacter.newInstance("txt")
+//        supportFragmentManager.beginTransaction().apply {
+//            replace(R.id.flfragSearch, frag)
+//            commit()
+//        }
 
-    }
+//    }
 
     private fun alterColorComic(idCor: Int) {
         llComics.setBackgroundColor(ContextCompat.getColor(this, idCor))

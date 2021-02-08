@@ -14,6 +14,7 @@ import com.example.projetointegradormarvel.R
 import com.example.projetointegradormarvel.characters.CharactersResults
 import com.example.projetointegradormarvel.home.HomeViewModel
 import com.example.projetointegradormarvel.search.adapter.SearchAdapterCharacter
+import com.example.projetointegradormarvel.ui.main.PlaceholderFragment
 import com.example.projetointegradormarvel.webService
 import kotlinx.android.synthetic.main.fragment_search_character.*
 import kotlinx.android.synthetic.main.fragment_search_character.view.*
@@ -49,7 +50,20 @@ class FragmentSearchCharacter : Fragment() {
 
     }
 
+//    companion object {
+//        fun newInstance() = FragmentSearchCharacter()
+//    }
+
     companion object {
-        fun newInstance() = FragmentSearchCharacter()
+        private const val ARG_QUERY = "query_string"
+
+        @JvmStatic
+        fun newInstance(queryArg: String): FragmentSearchCharacter {
+            return FragmentSearchCharacter().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_QUERY, queryArg)
+                }
+            }
+        }
     }
 }

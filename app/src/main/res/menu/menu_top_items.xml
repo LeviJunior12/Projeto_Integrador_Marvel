@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<!--
+
     <item
         android:id="@+id/search"
         android:icon="@drawable/ic_outline_search_24"
@@ -9,11 +9,11 @@
         android:iconTint="@color/black"
         android:title="@string/action_search"
         app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_round_star_outline_24"
-        android:orderInCategory="100"
-        android:title="@string/action_favorite"
-        app:showAsAction="ifRoom" />-->
+    <!--
+        <item
+            android:id="@+id/action_favorite"
+            android:icon="@drawable/ic_round_star_outline_24"
+            android:orderInCategory="100"
+            android:title="@string/action_favorite"
+            app:showAsAction="ifRoom" />-->
 </menu>

@@ -42,4 +42,8 @@
     <string name="create_account">Create Account</string>
     <string name="txt_create_account">Create Account</string>
     <string name="txt_cancel">Cancel</string>
+    <string name="app_label">Marvel Comics Wiki</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="tab_text_1">Characters</string>
+    <string name="tab_text_2">Comics</string>
 </resources>

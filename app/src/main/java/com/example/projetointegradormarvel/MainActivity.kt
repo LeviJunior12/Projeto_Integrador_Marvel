@@ -87,12 +87,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-/*
         R.id.search -> {
             callSearch()
             true
         }
-*/
 
 /*        R.id.action_favorite -> {
             when {
@@ -119,7 +117,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun callSearch() {
-        startActivity(Intent(this, BuscaActivity::class.java))
+        startActivity(Intent(this, SearchActivity::class.java))
     }
 
     private fun signOut() {
